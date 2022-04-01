@@ -5,4 +5,4 @@ Blog Link = https://medium.com/@kameshpavi97/building-a-clone-of-the-unsplash-we
 
 video Link = https://drive.google.com/file/d/1mWU2rNBym3Yv0E-N4mKRbfDN13GIrxB4/view?usp=sharing
 
-Netlify Link = eroic-pothos-d8083e.netlify.app/index.html
+Netlify Link =  heroic-pothos-d8083e.netlify.app/index.html
