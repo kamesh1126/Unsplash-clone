@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login page</title>
+    <!-- Lato Fonts impoting -->
+    <!-- Roboto Slab Importing -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto+Slab:wght@300&display=swap"
+      <!-- rel="stylesheet" -->
+    
+   <style>
+       #container{
+           width: 50%;
+           height:500px;
+           
+           font-family:sans-serif;
+       }
+       #inner{
+           width:800px;
+           height:500px;
+           margin:auto;
+           text-align:center;
+           font-family:Roboto,sans-serif;
+           /* border:1px solid black; */
+           border-radius: 20px;
+           padding-top: 20px;
+        
+       }
+       #logo {
+        width: 20%;
+        height: 15%;
+        /* border: 1px solid black; */
+        /* margin-top: 100px; */
+        margin: auto;
+        margin-top: 20px;
+      }
+      img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+      }
+       #head {
+        margin-top: 10px;
+        /* border: 1px solid black; */
+        /* margin-top: 10px; */
+      }
+      h3 {
+        margin-top: 30px;
+        color: black;
+        /* border: 1px solid black; */
+        display: block;
+        /* margin-top: 50px; */
+      }
+       #email{
+           width:480px;
+           height:35px;
+           margin-top: 10px;
+           color:black;
+           outline:none; 
+       }
+       #password{
+        width:480px;
+           height:35px;
+           margin-top: 30px;
+           color:black;
+           outline:none; 
+       }
+       /* #one{
+           margin-top: 100px;
+           text-align:center;
+           width:60%;
+           height:40px;
+           border-radius: 5px;
+           background-color: whitesmoke;
+           border:1px solid black;
+           font-weight: lighter;
+       } */
+       #two{
+        width:490px;
+           height:45px;
+           margin-top: 30px;
+           color:white;
+           outline:none; 
+           background-color: black;
+       }
+
+      p {
+        font-size:9px;
+        position: relative;
+        font-weight: lighter;
+        color: #333333;
+        font-family: sans-serif;
+        line-height: 15px;
+      }
+      a {
+        color: royalblue;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      span {
+        font-size: 16px;
+        margin-top: 50px;
+        color: gray;
+      }
+    #signupLink{
+        font-size: 14px;
+    }
+    #fbbtn{
+        padding: 13px 180px;
+        background-color: rgb(110, 110, 253);
+        color: white;
+        border: 5px;
+        cursor: pointer;
+
+    }
+  
+      @media only screen and (min-width:376px) and (max-width:768px){
+            #iiner{
+                grid-template-columns:repeat(2,1fr);
+            }
+        }
+        @media only screen and (min-width:0px) and (max-width:376px){
+            #inner{
+                width:100%;
+                grid-template-columns:repeat(1,1fr);
+
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <!-- <div id="container"> -->
+        <div id="inner">
+            <div id="logo">
+                <img id="logoimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAOVBMVEX///8AAAD39/eVlZVhYWHt7e2YmJisrKydnZ3AwMAuLi7V1dWoqKibm5v09PSQkJB1dXUdHR1aWlrVATWbAAABDklEQVR4nO3ZSxaCMAxAUUUFFfG3/8U6t5OAVVLPvQvIyeuw2WwAAAAAAAAAAAAAAELG/hjVj2svu8hlG3dZe9lFhhmFw9rLLqJQYX4KFeanUGF+ChXmp1BhfgoV5qdQYX4KFeanUGF+Ctsv/P/r2jiFL6RTmxdSAAAAIL3rIeC65sAPdbfI79JuxsRdZOCt+1rRuy60UD9jYh96MoX1KFRYUqiwNoUKSwoV1qZQYUmhwtoUKiwpVFibQoUlhQprU6iw1GbhNGPi1GTh/RR3b7LwcY57NFlYnUKFChUqVKhQoUKFChUqVKhQoUKFChUqVKhQoUKFLRYOz/3vPYffFQIAAAAAAAAAAAAAAPyxF6hYLRF9pu91AAAAAElFTkSuQmCC" alt="" />
+              </div>
+            <div id="head">
+
+                <h3>LOGIN</h3>
+            </div>
+            <h4>Welcome back.</h4>
+            <button id="fbbtn">Login with faceBook</button>
+            <br>
+            <h4>OR</h4>
+            <form action="" id="form">
+                <!-- <label for="">E</label> -->
+                <input id="email" type="email" placeholder="USERNAME" /><br>
+        ​
+                <!-- <label for="">Password</label> -->
+                <input id="password" type="password"  placeholder="PASSWORD" /><br>
+        ​
+                <button id="two" type="submit">Login</button>
+               <p id="signupLink">Don't have an account? <a href="signup.html">Join</a>
+                   
+            </p>
+           
+
+        </div>
+        
+    <!-- </div> -->
+  </body>
+</html>
+<script>
+  document.getElementById("form").addEventListener("submit", signIn);
+  var regUser = JSON.parse(localStorage.getItem("user")) || [];
+  function signIn(e) {
+    e.preventDefault();
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    if (!email || !password) {
+      alert("Enter All of the details");
+    } else {
+      for (var i = 0; i < regUser.length; i++) {
+        if (regUser[i].email === email && regUser[i].password === password) {
+          alert("Signin Sucessfully");
+          window.location.href = "index.html";
+          //   "file:///D:/Masai%20Codes/Day-15/E-commerce/products.html";
+          return;
+        } else if (email == "admin@gmail.com" && password == "admin") {
+          alert("Admin Signin Sucessfully");
+          //redirect admin page
+          window.location.href = "admin.html";
+          //   "file:///D:/Masai%20Codes/Day-15/E-commerce/form.html";
+          return;
+        }
+      }
+      alert("Wrong Credintial");
+    }
+  }
+</script>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up page</title>
+    <!-- Lato Fonts impoting -->
+    <!-- Roboto Slab Importing -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto+Slab:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body{
+        margin: 0;
+      }
+      #container {
+        margin-left: auto;
+        width: 50%;
+        height: 600px;
+        font-family: sans-serif;
+      }
+      #inner {
+        width: 800px;
+        height: 600px;
+        margin: auto;
+        text-align: center;
+        padding-top: 20px;
+
+      
+      }
+      #head {
+        margin-top: 0px;
+        /* border: 1px solid black; */
+        /* margin-top: 10px; */
+      }
+      h1 {
+        margin-top: 30px;
+        font-size: 53px;
+        
+      }
+    
+      #mobile {
+        width: 60%;
+        height: 35px;
+        margin-top: 30px;
+        color: black;
+        outline: none;
+      }
+      #email {
+        width: 60%;
+        height: 35px;
+        margin-top: 30px;
+        color: black;
+        outline: none;
+      }
+      #password {
+        width: 60%;
+        height: 35px;
+        margin-top: 30px;
+        color: black;
+        outline: none;
+      }
+      /* #one{
+           margin-top: 100px;
+           text-align:center;
+           width:60%;
+           height:40px;
+           border-radius: 5px;
+           background-color: whitesmoke;
+           border:1px solid black;
+           font-weight: lighter;
+
+
+       } */
+      #two {
+        width: 61%;
+        height: 40px;
+        margin-top: 30px;
+        color: white;
+        background-color: black;
+        outline: none;
+      }
+
+      p {
+        font-size: 12px;
+        position: relative;
+        font-weight: lighter;
+        color: black;
+        line-height: 15px;
+      }
+      a {
+        color: darkblue;
+        font-weight: bold;
+     
+      }
+      span {
+        font-size: 12px;
+        margin-top: 50px;
+        color: gray;
+      }
+      #loginlink{
+        font-size: 20px;
+        color: black;
+      }
+      #fbbtn{
+        padding: 13px 180px;
+        background-color: rgb(110, 110, 253);
+        color: white;
+        border: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+
+    }
+    #maincontainer{
+      display: flex;
+    }
+    #conimg{
+      width: 50%;
+      height: 600px;
+    }
+    #conimg1{
+      width: 100%;
+      height: 100%;
+    }
+
+    @media only screen and (min-width:376px) and (max-width:768px){
+            #iiner{
+                grid-template-columns:repeat(2,1fr);
+            }
+        }
+        @media only screen and (min-width:0px) and (max-width:376px){
+            #inner{
+                width:100%;
+                grid-template-columns:repeat(1,1fr);
+
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <div id="maincontainer">
+      <div id="conimg"><img id="conimg1" src="https://images.unsplash.com/photo-1555530001-acee1750bdcc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGFkdmVydGlzZSUyMG9uJTIwdW5zcGxhc2h8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt=""></div>
+      <div id="container">
+        <div id="inner">
+          <div id="head">
+            <h1 id="heading">Join Unsplash</h1>
+            <span id="loginlink" >Already have an account? <a  href="login.html">Login Here</a></span>
+    
+          </div>
+          <button id="fbbtn">Login with facebook</button>
+          <br>
+          <h4>OR</h4>
+          <form action="" id="form">
+            <!-- <label for="">Email</label> -->
+            <input id="email" type="email" placeholder="Enter Email" /><br />
+    
+            <!-- <label for="">Mobile No</label> -->
+            <input
+              id="mobile"
+              type="text"
+              maxlength="10"
+              placeholder="Enter Mobile Number"
+            /><br />
+    
+            <!-- <label for="">Password</label>  -->
+            <input
+              id="password"
+              type="password"
+              placeholder="Enter Password"
+            /><br />
+    
+            <button id="two" type="submit">Signup</button>
+          </form>
+          
+          <p>
+            By joining, you agree to the 
+            <a href="">Terms and </a><br />
+            <a href="">Privacy Policy.</a>
+          </p>
+        </div>
+        </div>
+    </div>
+  </body>
+</html>
+<script>
+  document.getElementById("form").addEventListener("submit", userList);
+  var arr = JSON.parse(localStorage.getItem("user")) || [];
+
+  function userList(e) {
+    e.preventDefault();
+    console.log("clicked");
+
+    var email = document.getElementById("email").value;
+    var mobile = document.getElementById("mobile").value;
+    var password = document.getElementById("password").value;
+    if (!email || !mobile || !password) {
+      alert("Enter all of the details");
+    } else {
+      var userObj = {
+        email: email,
+        mobile: mobile,
+        password: password,
+      };
+      arr.push(userObj);
+      localStorage.setItem("user", JSON.stringify(arr));
+      alert("Sign Up Successful!");
+      window.location.href = "login.html";
+    }
+  }
+</script>
